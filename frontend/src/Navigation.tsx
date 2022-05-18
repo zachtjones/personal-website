@@ -1,6 +1,8 @@
-import { AppBar, Box, Toolbar, Link } from '@mui/material'
+import { AppBar, Avatar, Box, Toolbar, Link } from '@mui/material'
 import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
+import profile from './profile.jpg'
+
 
 function Navigation() {
   return (
@@ -17,16 +19,23 @@ function Navigation() {
             borderRadius: 1,
             alignItems: 'center'
           }}>
+            <Box sx={{display: 'flex', alignItems: 'center'}}>
+              <Avatar alt="zach jones" src={profile} sx={{ display: 'inline-block', marginRight: '10px' }}></Avatar>
+              <span>Zach Jones</span>
+            </Box>
+
+            <Box/>
+
             <Link href="/" color="inherit" underline="hover">
               <HomeIcon />
             </Link>
 
-            <Link href="/about" color="inherit" underline="hover">
-              About
+            <Link href="/experiments" color="inherit" underline="hover">
+              Experiments
             </Link>
 
-            <Link href="/projects" color="inherit" underline="hover">
-              Projects
+            <Link href="/work" color="inherit" underline="hover">
+              Work
             </Link>
 
             <Link href="mailto:zachary_jones@intuit.com" color="inherit" underline="hover">

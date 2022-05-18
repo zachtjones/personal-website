@@ -3,10 +3,10 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Home from "./Home";
-import About from "./About";
-import Projects from "./Projects";
 import { Box } from "@mui/material";
+import Home from "./Home";
+import Experiments from "./Experiments";
+import Work from "./Work";
 
 function Router() {
   return (
@@ -14,8 +14,8 @@ function Router() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="projects" element={<Projects />} />
+          <Route path="experiments" element={<Experiments />} />
+          <Route path="work" element={<Work />} />
         </Routes>
       </BrowserRouter>
     </Box>
