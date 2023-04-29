@@ -7,8 +7,8 @@ import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem
 const yearsOfExperience = new Date().getFullYear() - 2019 // 2020 counts as a year
 
 const summaryContent = `Software Engineer with ${yearsOfExperience} years of experience,
-specializing in highly scalable (2000+ TPS), highly available (99.99+ %) microservices.
-Passionate for developer experience and delivering end to end solutions (from DevOps to Backend and Frontend).`
+specializing in highly scalable (60,000+ requests/second), highly available (99.99%) microservices.
+Passionate for developer experience and delivering end to end solutions, from DevOps to Backend and Frontend.`
 
 function Work() {
   const work = WorkContent
@@ -27,19 +27,22 @@ function Work() {
   ).sort()
 
   return (
-    <Box mt={4} sx={{
+    <Box id='work' mt={4} sx={{
       width: '80%',
       marginLeft: 'auto',
       marginRight: 'auto',
       bgcolor: 'background.paper'
     }}>
-      <Typography variant="h5" component="h1" mt={1}>
+      <Typography variant="h4" component="h1">
+        Work
+      </Typography>
+      <Typography variant="h5" component="h2" mt={1}>
         Summary
       </Typography>
       <Typography variant="body1" mb={1}>
         {summaryContent}
       </Typography>
-      <Typography variant="h5" component="h1" mt={2}>
+      <Typography variant="h5" component="h2" mt={2}>
         Skills
       </Typography>
       <Box
@@ -50,13 +53,13 @@ function Work() {
           listStyle: 'none',
         }}
       >
-        {allPillNames.map(x => <Chip color="primary" variant="outlined" label={x} sx={{ m: 0.5 }} />)}
+        {allPillNames.map(x => <Chip color="primary" variant="outlined" label={x} key={x} sx={{ m: 0.5 }} />)}
       </Box>
       <Typography variant="h5" component="h2" mt={2}>
-        Work Experience
+        Experience
       </Typography>
       {work.map((it) => (
-        <>
+        <Box key={it.end}>
           <Divider sx={{ marginBottom: '10px' }} />
 
           <Box sx={{
@@ -79,7 +82,7 @@ function Work() {
 
           <Timeline sx={{ mt: 0 }}>
             {it.experiences.map((descItem) => (
-              <TimelineItem>
+              <TimelineItem key={descItem.title}>
                 <TimelineOppositeContent style={{ display: 'none' }} />
                 <TimelineSeparator>
                   <TimelineDot />
@@ -95,7 +98,7 @@ function Work() {
               </TimelineItem>
             ))}
           </Timeline>
-        </>
+        </Box>
       ))}
     </Box>
   );
@@ -138,7 +141,7 @@ function Experience(props: { "experience": ExperienceItem, "showDates": Boolean 
     </Box>
     <ul style={{ marginBlockStart: '0' }}>
       {experience.description.map(descriptionItem => (
-        <li>
+        <li key={descriptionItem}>
           <Typography>
             {descriptionItem}
           </Typography>

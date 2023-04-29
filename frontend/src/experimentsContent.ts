@@ -9,28 +9,6 @@
  */
 export const ExperimentsContent = [
   {
-    "title": "Java Compiler",
-    "goal": "To learn how real compilers were created as well as a real assembly language, like Intel's x86-64; I had learned the basics in my classes in college and wanted to expand my knowledge",
-    "description": [
-      "Created a compiler for Java programs consisting of a single class file",
-      "Automated testing on PR's with small programs",
-    ],
-    "learnings": [
-      "How x86 assembly differs between MIPS",
-      "How to design an intermediate language",
-      "Deeper understanding of how java code runs",
-      "There are tools like jaotc / GraalVM that have also explored this and have made it a lot further",
-    ],
-    "start": "Dec 2017",
-    "end": "June 2019",
-    "team": "Individual",
-    "links": [
-      "https://github.com/zachtjones/Java-Compiler"
-    ],
-    "languages": ["Java", "x86 assembly"],
-    "tools": []
-  },
-  {
     "title": "Comic-Con Museum",
     "goal": "Comic-Con was planning to open a museum in San Diego's Balboa Park. Intuit orchestrated a hackathon for a week where interns developed a POC",
     "description": [
@@ -92,6 +70,28 @@ export const ExperimentsContent = [
     "tools": [
       "AWS Route53", "AWS EC2"
     ]
+  },
+  {
+    "title": "Java Compiler",
+    "goal": "To learn how real compilers were created as well as a real assembly language, like Intel's x86-64; I had learned the basics in my classes in college and wanted to expand my knowledge",
+    "description": [
+      "Created a compiler for Java programs consisting of a single class file",
+      "Set up automated integration testing on PR's with small programs",
+    ],
+    "learnings": [
+      "How x86 assembly differs between MIPS",
+      "How to design an intermediate language",
+      "Deeper understanding of how java code runs",
+      "There are tools like jaotc / GraalVM that have also explored this and have made it a lot further",
+    ],
+    "start": "Dec 2017",
+    "end": "June 2019",
+    "team": "Individual",
+    "links": [
+      "https://github.com/zachtjones/Java-Compiler"
+    ],
+    "languages": ["Java", "x86 assembly"],
+    "tools": []
   },
   {
     "title": "This website",

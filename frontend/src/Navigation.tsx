@@ -1,13 +1,13 @@
 import { AppBar, Avatar, Box, Toolbar, Link } from '@mui/material'
 import HomeIcon from '@mui/icons-material/Home';
 import MailIcon from '@mui/icons-material/Mail';
-import profile from './images/profile.jpg'
+import profile from './images/profile.png'
 
 
 function Navigation() {
   return (
 
-    <AppBar position='static'>
+    <AppBar position='sticky'>
       <Toolbar disableGutters>
         <div style={{ width: '100%' }}>
           <Box sx={{
@@ -26,17 +26,19 @@ function Navigation() {
 
             <Box />
 
-            <Link href="/" color="inherit" underline="hover">
+            <Link href="/#home" color="inherit" underline="hover">
               <HomeIcon />
             </Link>
 
-            <Link href="/experiments" color="inherit" underline="hover">
-              Experiments
+            <Link href="/#work" color="inherit" underline="hover">
+              Work Experience
             </Link>
 
-            <Link href="/work" color="inherit" underline="hover">
-              Work
+            <Link href="/#experiments" color="inherit" underline="hover">
+              Projects
             </Link>
+
+            
 
             <Link href="mailto:zachary_jones@intuit.com" color="inherit" underline="hover">
               <MailIcon />
