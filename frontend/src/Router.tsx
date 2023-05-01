@@ -1,7 +1,5 @@
 import {
   BrowserRouter,
-  Routes,
-  Route,
   useLocation,
 } from "react-router-dom";
 import { Box } from "@mui/material";

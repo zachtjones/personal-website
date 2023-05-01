@@ -1,4 +1,4 @@
-import { Typography, Divider, Box, Chip, Avatar } from "@mui/material";
+import { Typography, Divider, Box, Chip, Avatar, Stack } from "@mui/material";
 import { WorkContent } from "./workContent";
 import IntuitLogo from './images/intuitLogo.jpeg';
 import ProntoLogo from './images/prontoLogo.jpeg';
@@ -8,7 +8,16 @@ const yearsOfExperience = new Date().getFullYear() - 2019 // 2020 counts as a ye
 
 const summaryContent = `Software Engineer with ${yearsOfExperience} years of experience,
 specializing in highly scalable (60,000+ requests/second), highly available (99.99%) microservices.
-Passionate for developer experience and delivering end to end solutions, from DevOps to Backend and Frontend.`
+Passionate about developer experience and delivering end to end solutions, from DevOps to Backend and Frontend.`
+
+
+/**
+ * Notes:
+ * Making everything printer friendly, thinking the printer version would look like a more traditional resume, then I only have to update one place to get both
+ * 
+ * Also thinking a word cloud could be cool for the skills, then I can focus on the ones that are stronger with bigger font
+ * 
+ */
 
 function Work() {
   const work = WorkContent
@@ -33,7 +42,7 @@ function Work() {
       marginRight: 'auto',
       bgcolor: 'background.paper'
     }}>
-      <Typography variant="h4" component="h1">
+      <Typography variant="h4" component="h1" displayPrint='none'>
         Work
       </Typography>
       <Typography variant="h5" component="h2" mt={1}>
@@ -69,14 +78,14 @@ function Work() {
           }}>
 
             <CompanyIcon name={it.company.name} />
-            <Box>
-              <Typography variant="body1" component="div">
+            <Stack direction='row' justifyContent='space-between' alignItems='center' width='100%'>
+              <Typography variant="body1">
                 {it.company.name}
               </Typography>
-              <Typography variant="body2" component="div">
+              <Typography variant="body2">
                 {it.start} to {it.end}
               </Typography>
-            </Box>
+            </Stack>
 
           </Box>
 

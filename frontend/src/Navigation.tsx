@@ -7,7 +7,7 @@ import profile from './images/profile.png'
 function Navigation() {
   return (
 
-    <AppBar position='sticky'>
+    <AppBar position='sticky' sx={{ displayPrint: 'none' }}>
       <Toolbar disableGutters>
         <div style={{ width: '100%' }}>
           <Box sx={{
@@ -21,7 +21,7 @@ function Navigation() {
           }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Avatar alt="zach jones" src={profile} sx={{ display: 'inline-block', marginRight: '10px' }}></Avatar>
-              <span>Zach Jones</span>
+              <span>Zachary Jones</span>
             </Box>
 
             <Box />
@@ -37,8 +37,6 @@ function Navigation() {
             <Link href="/#experiments" color="inherit" underline="hover">
               Projects
             </Link>
-
-            
 
             <Link href="mailto:zachary_jones@intuit.com" color="inherit" underline="hover">
               <MailIcon />

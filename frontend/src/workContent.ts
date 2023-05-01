@@ -23,29 +23,18 @@ export const WorkContent = [
     "end": "present",
     "experiences": [
       {
-        "title": "Full-Stack Software Engineer 2 | Credential Adapter | Identity",
-        "start": "Dec 2020",
+        "title": "Full-Stack Software Engineer 2 | Credentials",
+        "start": "Sept 2020",
         "end": "present",
         "languages": ["Kotlin", "React", "DynamoDB", "SQL"],
         "skills": ["Spring boot", "microservices", "system design"],
         "description": [
-          "Created infrastructure for new service: K8s, security, deployment pipeline using Intuit templates and customization",
           "Designed architecture for microservice to bridge from old domain model to new one",
           "Led the development of Credential Adapter's password verfication feature",
           "Designed and implemented pattern for validation of data consistency between legacy and new systems",
-          "Orchestrated development of self-service capability for all engineers to be able to triage account lockouts"
-        ],
-        "environment": "team of 6 backend engineers"
-      },
-      {
-        "title": "Full-Stack Software Engineer 2 | Credential | Identity",
-        "start": "Sept 2020",
-        "end": "Nov 2020",
-        "languages": ["Kotlin", "DynamoDB"],
-        "skills": ["Spring boot", "microservices"],
-        "description": [
+          "Orchestrated development of self-service capability for all engineers to be able to triage account lockouts",
+          "Set up CI/CD pipeline for new microservice on K8s",
           "Implemented POC using DynamoDB streams to send events to data lake using Apache Pulsar",
-          "Worked with senior engineers to design DynamoDB schema to store login credentials for all Intuit users"
         ],
         "environment": "team of 6 backend engineers"
       },
@@ -104,7 +93,7 @@ export const WorkContent = [
     "end": "Oct 2017",
     "experiences": [
       {
-        "title": "Freelance Full-Stack Software Engineer | Deliver ecosystem",
+        "title": "Freelance Full-Stack Software Engineer | Delivery ecosystem",
         "start": "Feb 2017",
         "end": "Oct 2017",
         "languages": ["HTML", "Swift"],
