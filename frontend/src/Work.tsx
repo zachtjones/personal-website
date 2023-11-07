@@ -1,15 +1,8 @@
-import { Typography, Divider, Box, Chip, Avatar, Stack } from "@mui/material";
+import { Typography, Divider, Box, Avatar, Stack } from "@mui/material";
 import { WorkContent } from "./workContent";
 import IntuitLogo from './images/intuitLogo.jpeg';
 import ProntoLogo from './images/prontoLogo.jpeg';
 import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator, TimelineOppositeContent } from "@mui/lab";
-
-const yearsOfExperience = new Date().getFullYear() - 2019 // 2020 counts as a year
-
-const summaryContent = `Software Engineer with ${yearsOfExperience} years of experience,
-specializing in highly scalable (60,000+ requests/second), highly available (99.99%) microservices.
-Passionate about developer experience and delivering end to end solutions, from DevOps to Backend and Frontend.`
-
 
 /**
  * Notes:
@@ -22,54 +15,14 @@ Passionate about developer experience and delivering end to end solutions, from 
 function Work() {
   const work = WorkContent
 
-  const allPillNames = Array.from(
-    new Set(
-      work
-        .flatMap(x => x.experiences)
-        .flatMap(x => x.languages)
-        .concat(
-          work
-            .flatMap(x => x.experiences)
-            .flatMap(x => x.skills)
-        )
-    )
-  ).sort()
-
   return (
-    <Box id='work' mt={4} sx={{
-      width: '80%',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      bgcolor: 'background.paper'
-    }}>
-      <Typography variant="h4" component="h1" displayPrint='none'>
-        Work
-      </Typography>
-      <Typography variant="h5" component="h2" mt={1}>
-        Summary
-      </Typography>
-      <Typography variant="body1" mb={1}>
-        {summaryContent}
-      </Typography>
-      <Typography variant="h5" component="h2" mt={2}>
-        Skills
-      </Typography>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'left',
-          flexWrap: 'wrap',
-          listStyle: 'none',
-        }}
-      >
-        {allPillNames.map(x => <Chip color="primary" variant="outlined" label={x} key={x} sx={{ m: 0.5 }} />)}
-      </Box>
-      <Typography variant="h5" component="h2" mt={2}>
+    <Box id='work'>
+      <Typography variant="h5" component="h2">
         Experience
       </Typography>
       {work.map((it) => (
         <Box key={it.end}>
-          <Divider sx={{ marginBottom: '10px' }} />
+          <Divider sx={{ marginBottom: '10px', displayPrint: 'none' }} />
 
           <Box sx={{
             display: 'flex',
@@ -77,19 +30,18 @@ function Work() {
             alignItems: 'center'
           }}>
 
-            <CompanyIcon name={it.company.name} />
+            <CompanyIcon name={it.company.name}/>
             <Stack direction='row' justifyContent='space-between' alignItems='center' width='100%'>
-              <Typography variant="body1">
+              <Typography variant="h6" mt='0'>
                 {it.company.name}
               </Typography>
-              <Typography variant="body2">
+              <Typography variant="subtitle2">
                 {it.start} to {it.end}
               </Typography>
             </Stack>
 
           </Box>
-
-          <Timeline sx={{ mt: 0 }}>
+          <Timeline sx={{ mt: 0, displayPrint: 'none' }}>
             {it.experiences.map((descItem) => (
               <TimelineItem key={descItem.title}>
                 <TimelineOppositeContent style={{ display: 'none' }} />
@@ -98,15 +50,17 @@ function Work() {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Typography variant="body1">
-                    {descItem.title}
-                  </Typography>
                   <Experience experience={descItem} showDates={it.experiences.length !== 1} />
-
                 </TimelineContent>
               </TimelineItem>
             ))}
           </Timeline>
+          {/* Much simpler on print view */}
+          <Box sx={{ displayPrint: 'block', display: 'none' }}>
+            {it.experiences.map((descItem) => (
+                  <Experience experience={descItem} showDates={it.experiences.length !== 1} />
+            ))}
+          </Box>
         </Box>
       ))}
     </Box>
@@ -116,8 +70,8 @@ function Work() {
 function CompanyIcon(props: { "name": String }) {
   let icon;
   switch (props.name) {
-    case "Intuit, Inc": return <Avatar variant="square" sx={{ mr: 1 }} src={IntuitLogo} />;
-    case "Pronto Systems, Inc": return <Avatar variant="square" sx={{ mr: 1 }} src={ProntoLogo} />;
+    case "Intuit, Inc": return <Avatar variant="square" sx={{ mr: 1, displayPrint: 'none' }} src={IntuitLogo} />;
+    case "Pronto Systems, Inc": return <Avatar variant="square" sx={{ mr: 1, displayPrint: 'none' }} src={ProntoLogo} />;
     default: icon = props.name.charAt(0)
   }
   return <>{icon}</>
@@ -136,6 +90,9 @@ type ExperienceItem = {
 function Experience(props: { "experience": ExperienceItem, "showDates": Boolean }) {
   const experience = props.experience
   return <>
+    <Typography variant="subtitle1">
+      {experience.title}
+    </Typography>
     <Box sx={{
       display: 'flex',
       flexDirection: 'row',
@@ -148,10 +105,10 @@ function Experience(props: { "experience": ExperienceItem, "showDates": Boolean 
         </Typography>
       }
     </Box>
-    <ul style={{ marginBlockStart: '0' }}>
+    <ul style={{ paddingInlineStart: '32px', margin: '0', marginBottom: '6px' }}>
       {experience.description.map(descriptionItem => (
         <li key={descriptionItem}>
-          <Typography>
+          <Typography variant="body1">
             {descriptionItem}
           </Typography>
         </li>

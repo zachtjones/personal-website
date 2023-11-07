@@ -13,8 +13,7 @@ export const ExperimentsContent = [
     "goal": "Comic-Con was planning to open a museum in San Diego's Balboa Park. Intuit orchestrated a hackathon for a week where interns developed a POC",
     "description": [
       "Created full-stack application to allow fans to submit potential exhibits in the upcoming Comic-Con museum.",
-      "Backend - Java Spring based, using Postgres + Amazon S3",
-      "Frontend - React",
+      "Uses Java SpringBoot + Postgres + Amazon S3 (backend) and React (frontend)",
     ],
     "learnings": [
       "How to quickly iterate on designs and create MVP solution",
@@ -57,7 +56,7 @@ export const ExperimentsContent = [
     "title": "Minecraft server",
     "goal": "",
     "description": [
-      "Used pulumi + typescript"
+      "Used pulumi's typescript to provision a server using latest Minecraft release."
     ],
     "learnings": [
 
@@ -97,7 +96,7 @@ export const ExperimentsContent = [
     "title": "This website",
     "goal": "Refresh frontend skills",
     "description": [
-      "Created this site using React + Material UI"
+      "Created this site using React + Material UI, deployed using AWS Amplify"
     ],
     "learnings": [],
     "start": "May 2022",
