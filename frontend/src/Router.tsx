@@ -3,8 +3,13 @@ import {
   useLocation,
 } from "react-router-dom";
 import { Box } from "@mui/material";
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import Home from "./Home";
+import Education from "./Education";
 import Experiments from "./Experiments";
+import Profile from "./Profile";
+import Skills from "./Skills";
+import Summary from "./Summary";
 import Work from "./Work";
 import { useEffect } from "react";
 
@@ -44,9 +49,38 @@ function AppElementsRouter() {
 
   return (
     <>
+      <Box sx={{ 
+        displayPrint: 'none',  
+        width: '80%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        bgcolor: 'background.paper'
+      }}>
         <Home />
+        <Summary />
+        <Education />
+        <Skills />
         <Work />
         <Experiments />
+      </Box>
+      {/* Print view for resume */}
+      <Box sx={{ display: 'none', displayPrint: 'block', color: 'black' }}>
+        <Summary />
+        {/* 2 column setup */}
+        <Grid container spacing={4}>
+          {/* column 1 */}
+          <Grid xs={9}>
+            <Work />
+            <Experiments />
+          </Grid>
+          {/* column 2 */}
+          <Grid xs={3}>
+            <Profile />
+            <Skills />
+            <Education />
+          </Grid>
+        </Grid>
+      </Box>
     </>
   )
 }
