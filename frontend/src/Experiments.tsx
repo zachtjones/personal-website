@@ -1,5 +1,10 @@
 import { Typography, Box } from "@mui/material";
 import { ExperimentsContent } from "./experimentsContent";
+import LanguageClassifierExperiment from "./LanguageClassifierExperiment";
+
+const customWidgets = {
+  "languageClassifier": <LanguageClassifierExperiment/>
+}
 
 function Experiments() {
   const experiments = ExperimentsContent
@@ -19,11 +24,12 @@ function Experiments() {
             </Typography>
             <ul style={{ marginBlockStart: '0', marginBlockEnd: '0', paddingInlineStart: '32px' }}>
               {it.description.map((descItem) => (
-                <Typography>
-                  <li key={descItem}>{descItem}</li>
+                <Typography key={descItem}>
+                  <li>{descItem}</li>
                 </Typography>
               ))}
             </ul>
+            {it.customWidget === 'languageClassifier' && customWidgets[it.customWidget]}
           </Box>
         ))}
       </Box>

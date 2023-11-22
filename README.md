@@ -36,3 +36,12 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Interactive content
+
+This site uses the [Multi-language classifier backend](https://github.com/zachtjones/Multi-Language-Classifier), which is another project of mine.
+
+This is hosted on https://api.zach-jones.com/graphql in the cloud.
+
+If you are running that backend locally, it will call http://localhost:8080/graphql 
+when the URL has `localBackend=true` in the query string.

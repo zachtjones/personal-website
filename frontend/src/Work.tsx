@@ -58,7 +58,7 @@ function Work() {
           {/* Much simpler on print view */}
           <Box sx={{ displayPrint: 'block', display: 'none' }}>
             {it.experiences.map((descItem) => (
-                  <Experience experience={descItem} showDates={it.experiences.length !== 1} />
+                  <Experience key={descItem.title} experience={descItem} showDates={it.experiences.length !== 1} />
             ))}
           </Box>
         </Box>

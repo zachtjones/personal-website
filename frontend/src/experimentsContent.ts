@@ -50,7 +50,8 @@ export const ExperimentsContent = [
       "https://github.com/zachtjones/Multi-Language-Classifier"
     ],
     "languages": ["Java"],
-    "tools": []
+    "tools": [],
+    "customWidget": "languageClassifier"
   },
   {
     "title": "Minecraft server",
