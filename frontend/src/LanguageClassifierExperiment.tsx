@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { LoadingButton } from "@mui/lab";
-import { Typography, Box, Button, TextField, Grid, Divider, Stepper, Step, StepLabel, Stack } from "@mui/material";
+import { Typography, Box, Button, TextField, Grid, Divider, Stepper, Step, StepLabel, Stack, Link } from "@mui/material";
 import { useState } from "react";
 import { gql } from '../src/__generated__/gql';
 import { Language } from "./__generated__/graphql";
@@ -156,6 +156,7 @@ function LanguageClassifierExperiment() {
               </Grid>
               <Grid item xs={12}>
                 <Stack direction='row'>
+                  <Typography variant="subtitle2">Use "Pick a phrase for me" or type at least 12 words for best accuracy.</Typography>
                   <Box sx={{ flex: '1 1 auto' }} />
                   <Button variant='contained' onClick={onStep1Next} disabled={!phrase}>Next</Button>
                 </Stack>
@@ -212,6 +213,10 @@ function LanguageClassifierExperiment() {
         { error && <Typography variant='body2' color='#f88'>Error: {error}</Typography>}
         <Divider variant="fullWidth" sx={{mt: 1, mb: 1, borderColor: '#888'}}/>
         <Typography variant="subtitle2">Supported languages: English, French, German, Spanish, Swedish</Typography>
+        
+        <Typography variant="subtitle2">View the source code for the backend on my
+          <Link target='_blank' rel='noreferrer' href='https://github.com/zachtjones/Multi-Language-Classifier'> GitHub</Link>.
+        </Typography>
       </Box>
     </>
   );

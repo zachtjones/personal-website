@@ -35,21 +35,22 @@ export const ExperimentsContent = [
     "title": "Language Classifier",
     "goal": "Expand my machine learning knowledge on a more practical task",
     "description": [
-      "Determines the most likely language of a sentence from 15 potential languages",
-      "Genetic algorithm for attribute selection",
-      "Decision trees and adaptive boosting for classification using attributes",
+      "Determines the most likely language of a sentence from 5 potential languages",
+      "Uses a custom genetic (evolution-based) algorithm for attribute selection",
+      "Decision trees and adaptive boosting for model training",
+      "Trained on Homer's Odyssey, achieving 95% accuracy"
     ],
     "learnings": [
       "How to use genetic algorithms to determine potential attributes",
       "How to use decision trees and improve learning with boosting",
     ],
     "start": "April 2019",
-    "end": "November 2019",
+    "end": "Jan 2024",
     "team": "Individual",
     "links": [
       "https://github.com/zachtjones/Multi-Language-Classifier"
     ],
-    "languages": ["Java"],
+    "languages": ["Java", "Kotlin"],
     "tools": [],
     "customWidget": "languageClassifier"
   },
