@@ -74,12 +74,19 @@ export type Query = {
   __typename?: 'Query';
   language: LanguageClassificationResult;
   models: TrainedModelsResult;
+  randomPhrase: RandomPhraseResult;
   trainingData: TrainingDataResult;
 };
 
 
 export type QueryLanguageArgs = {
   input: LanguageClassificationInput;
+};
+
+export type RandomPhraseResult = {
+  __typename?: 'RandomPhraseResult';
+  language: Language;
+  phrase: Scalars['String']['output'];
 };
 
 export type TrainModelInput = {
@@ -126,6 +133,11 @@ export type TrainingDataResult = {
   trainingData: Array<TrainingData>;
 };
 
+export type RandomPhraseQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type RandomPhraseQuery = { __typename?: 'Query', randomPhrase: { __typename?: 'RandomPhraseResult', phrase: string, language: Language } };
+
 export type LanguageQueryVariables = Exact<{
   phrase: Scalars['String']['input'];
   modelId: Scalars['ID']['input'];
@@ -135,4 +147,5 @@ export type LanguageQueryVariables = Exact<{
 export type LanguageQuery = { __typename?: 'Query', language: { __typename?: 'LanguageClassificationResult', mostLikelyLanguage: Language, probabilities: Array<{ __typename?: 'LanguageProbability', language: Language, percentageLikely: number }> } };
 
 
+export const RandomPhraseDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"RandomPhrase"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"randomPhrase"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"phrase"}},{"kind":"Field","name":{"kind":"Name","value":"language"}}]}}]}}]} as unknown as DocumentNode<RandomPhraseQuery, RandomPhraseQueryVariables>;
 export const LanguageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Language"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"phrase"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"modelId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"language"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"phrase"},"value":{"kind":"Variable","name":{"kind":"Name","value":"phrase"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"modelId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"modelId"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"mostLikelyLanguage"}},{"kind":"Field","name":{"kind":"Name","value":"probabilities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"language"}},{"kind":"Field","name":{"kind":"Name","value":"percentageLikely"}}]}}]}}]}}]} as unknown as DocumentNode<LanguageQuery, LanguageQueryVariables>;

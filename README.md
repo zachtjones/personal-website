@@ -8,6 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the `frontend` directory, you can run:
 
+### `npm run compile`
+
+Re-generates the graphql client. You will need to first write your query in the src code and then run this command for it to update the client.
+
 ### `npm start`
 
 Runs the app in the development mode.\
