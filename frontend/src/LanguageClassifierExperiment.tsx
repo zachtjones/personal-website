@@ -100,12 +100,12 @@ function LanguageClassifierExperiment() {
           </Grid>
         </form>
         { result && <Typography variant='body1'>{result}</Typography>}
-        { probabilities && probabilities.map((probability) => 
-          <Typography key={probability.language}>{`${probability.language}: ${probability.percentageLikely.toFixed(2)}%`}</Typography>
+        { probabilities && probabilities.map((probability) =>
+          <Typography key={probability.language}>{probability.language !== Language.Other && `${probability.language}: ${probability.percentageLikely.toFixed(2)}%`}</Typography>
         )}
         { error && <Typography variant='body2' color='#f88'>Error: {error}</Typography>}
         <Divider variant="fullWidth" sx={{mt: 1, mb: 1, borderColor: '#888'}}/>
-        <Typography variant="subtitle2">Supported languages: Albanian, Croatian, Czech, Danish, Dutch, English, French, Gaelic, German, Hawaiian, Icelandic, Italian, Romanian, Samoan, Spanish</Typography>
+        <Typography variant="subtitle2">Supported languages: English, French, German, Spanish, Swedish</Typography>
       </Box>
     </>
   );

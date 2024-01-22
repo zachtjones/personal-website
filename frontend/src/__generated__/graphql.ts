@@ -16,27 +16,18 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type DownloadTrainingDataInput = {
-  /** Number of phrases to download in each language; min 10 max 1000 */
+export type CreateTrainingDataInput = {
+  /** Number of phrases to download in each language; min 10 max 2000 */
   numberOfPhrasesInEachLanguage: Scalars['Int']['input'];
 };
 
 export enum Language {
-  Albanian = 'Albanian',
-  Croatia = 'Croatia',
-  Czech = 'Czech',
-  Danish = 'Danish',
-  Dutch = 'Dutch',
-  English = 'English',
-  French = 'French',
-  Gaelic = 'Gaelic',
-  German = 'German',
-  Hawaiian = 'Hawaiian',
-  Icelandic = 'Icelandic',
-  Italian = 'Italian',
-  Romanian = 'Romanian',
-  Samoan = 'Samoan',
-  Spanish = 'Spanish'
+  English = 'ENGLISH',
+  French = 'FRENCH',
+  German = 'GERMAN',
+  Other = 'OTHER',
+  Spanish = 'SPANISH',
+  Swedish = 'SWEDISH'
 }
 
 export type LanguageClassificationInput = {
@@ -65,13 +56,13 @@ export enum ModelType {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  downloadTrainingData: TrainingData;
+  createTrainingData: TrainingData;
   trainModel: TrainedModel;
 };
 
 
-export type MutationDownloadTrainingDataArgs = {
-  input: DownloadTrainingDataInput;
+export type MutationCreateTrainingDataArgs = {
+  input: CreateTrainingDataInput;
 };
 
 
@@ -92,15 +83,21 @@ export type QueryLanguageArgs = {
 };
 
 export type TrainModelInput = {
-  /** Number of generations for attribute evolution used in the model (1...100) */
+  /** Number of generations for attribute evolution used in the model */
   attributeGenerations: Scalars['Int']['input'];
-  /** Number of attributes to retain for the next generation (10...500) */
+  /** Number of attributes to retain for the next generation */
   attributePoolSize: Scalars['Int']['input'];
-  /** Required for adaptive boost strategy, the number of trees that are used. */
+  /** Required for adaptive boost strategy, the number of trees that are used */
   ensembleSize?: InputMaybe<Scalars['Int']['input']>;
   modelType: ModelType;
+  /**
+   * Input data ID for data used after training to determine accuracy, should be different than training.
+   * If same as training, then it will be result in the same number for training/testing accuracy.
+   */
+  testingDataId: Scalars['ID']['input'];
+  /** Input data ID for using to train the model */
   trainingDataId: Scalars['ID']['input'];
-  /** Number of levels to the tree (1...10) to use for learning when using Decision Trees */
+  /** Number of levels to the tree to use for learning when using Decision Trees */
   treeDepth?: InputMaybe<Scalars['Int']['input']>;
 };
 
@@ -108,6 +105,7 @@ export type TrainedModel = {
   __typename?: 'TrainedModel';
   description: Scalars['String']['output'];
   modelId: Scalars['ID']['output'];
+  testingAccuracyPercentage: Scalars['Float']['output'];
   trainingAccuracyPercentage: Scalars['Float']['output'];
 };
 
@@ -118,9 +116,9 @@ export type TrainedModelsResult = {
 
 export type TrainingData = {
   __typename?: 'TrainingData';
+  averageWordCountPerPhrase: Scalars['Float']['output'];
   id: Scalars['ID']['output'];
   numberOfPhrasesInEachLanguage: Scalars['Int']['output'];
-  phraseWordLength: Scalars['Int']['output'];
 };
 
 export type TrainingDataResult = {

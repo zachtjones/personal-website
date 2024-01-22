@@ -3,4 +3,4 @@
 const urlParams = new URLSearchParams(window.location.search);
 const localBackend = urlParams.get('localBackend');
 export const GRAPHQL_URL: string = localBackend ? "http://localhost:8080/graphql" : "https://api.zach-jones.com/graphql"
-export const BEST_MODEL_ID = "172f96eb-5c6e-400c-b643-6304f91439f4"
+export const BEST_MODEL_ID = "029b11ec-e2cd-4799-8c53-a485b8f8e6b7"
