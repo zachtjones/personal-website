@@ -38,7 +38,7 @@ function Navigation() {
               Projects
             </Link>
 
-            <Link href="mailto:zachary_jones@intuit.com" color="inherit" underline="hover">
+            <Link href="mailto:zachtjones16+web@gmail.com" color="inherit" underline="hover">
               <MailIcon />
             </Link>
           </Box>
