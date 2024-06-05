@@ -29,7 +29,7 @@ function Experiments() {
                 </Typography>
               ))}
             </ul>
-            {it.customWidget === 'languageClassifier' && customWidgets[it.customWidget]}
+            {/* {it.customWidget === 'languageClassifier' && customWidgets[it.customWidget]} */}
           </Box>
         ))}
       </Box>
